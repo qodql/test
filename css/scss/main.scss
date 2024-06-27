@@ -1,0 +1,289 @@
+@import url('./common.css');
+@import url('./reset.css');
+
+$mobile: 767px;
+$tablet: 768px;
+
+
+@mixin res($d){
+    @if($d == 'mobile'){
+        //mobile
+        @media (max-width:767px) {
+            @content;
+        }
+    }@else{
+        //tablet
+        @media (min-width:768px) and (max-width: 1024px) {
+            @content;
+        }
+    }
+}
+
+
+/* main.css */
+.spot{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.spot .slide{}
+.spot .slide figure{
+    height: 100vh;
+}
+.spot .slide figure img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.spot .slide .indi{
+    position: absolute;
+    left: 0;
+    bottom: 5%;
+    text-align: center;
+    width: 100%;
+    z-index: 3;
+}
+
+.spot .slide .indi>button{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 0;
+    transition: 0.5s;
+}
+
+.spot .slide .indi>button:hover{
+    width: 60px;
+}
+
+.spot .txt{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    pointer-events: none;
+}
+
+.spot .txt p{
+    font-size: 2rem;
+    @include res('mobile'){
+        font-size: 1rem;
+    }
+}
+.spot .txt b{
+    font-size: 4.4rem;
+    @include res('mobile'){
+        font-size: 2rem;;
+    }
+}
+
+/* .spot .txt > .btn{
+    font-size: 1.5rem;
+    background-color: var(--color-point);
+    padding: 22px 50px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: .5s;
+    pointer-events: fill;
+}
+
+.spot .txt > .btn:hover{
+    background-color: red;
+} */
+
+/* section */
+section{
+    padding: 100px 0;
+    @include res('mobile'){
+        padding: 48px 24px;
+    }
+}
+section div{
+    max-width: var(--pc-wid);
+    margin: 0 auto;
+}
+
+section .service{}
+section .service >div{}
+
+
+.title{
+    margin-bottom: 50px;
+    text-align: center;
+}
+.title>h2{
+    font-size: 2.5rem;
+}
+
+.title >p{
+    margin-top: 10px;
+}
+
+.service-items{
+    display: flex;
+    justify-content: space-between;
+
+    @include res('mobile'){
+        flex-direction: column;
+    }
+}
+.service-items > figure{
+    width: 30%;
+    text-align: center;
+    @include res('mobile'){
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+.service-items > figure > p{
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: var(--color-point);
+    margin: 0 auto;  
+    font-size: 3rem;
+    color: #000;
+    line-height: 130px;
+}
+
+.service-items > figure>figcaption{}
+.service-items > figure>figcaption>b{
+    display: block;
+    font-size: 2rem;
+    color: #212529;
+    margin: 8px 0 8px;
+}
+.service-items > figure>figcaption>p{}
+    
+
+/* portfolio */
+.portfolio-items{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    gap: 20px 0;
+    @include res('mobile'){
+        flex-direction: column;
+    }
+}
+.portfolio-items>figure{
+    width: 32%;
+    @include res('mobile'){
+        width: 100%;
+    }
+}
+
+
+.portfolio-items>figure:hover > p{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+.portfolio-items>figure>p{
+    position: relative;
+    //max-height: 256px;
+    //부모크기 * 자식크기 / 100%
+    padding-top: 62%;
+    transform-style: preserve-3d;
+    transition: 1s;
+}
+
+.portfolio-items>figure>p>img{
+    position: absolute;
+    top:0;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio-items>figure>p>img:nth-child(1){
+    z-index: 1;
+}
+.portfolio-items>figure>p>img:nth-child(2){
+    transform: translateZ(-1px) rotateY(180deg);
+    z-index: 2;
+}
+
+
+@keyframes card{
+    0%{}
+    100%{
+        
+    }
+}
+
+
+.portfolio-items>figure>p{}
+.portfolio-items>figure>p>img{
+    width: 100%;
+}
+
+.portfolio-items>figure>figcaption{
+    padding: 24px 0;
+    text-align: center;
+}
+.portfolio-items>figure>figcaption>b{
+    font-size: 1.5rem;
+    color: #333;
+}
+.portfolio-items>figure>figcaption>b>p{}
+
+
+/* contact */
+.contact{}
+.contact-form{
+    display: flex;
+    justify-content: space-between;
+    @include res('mobile'){
+        flex-direction: column;
+    }
+}
+.contact-form>div{
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include res('mobile'){
+        width: 100%;
+    }
+}
+.contact-form>div>input,
+.contact-form>div>textarea{
+    padding: 24px;
+    border-radius: 10px;
+    width: 100%;
+    border: none;
+    @include res('mobile'){
+        margin-bottom: 8px;
+    }
+}
+
+.contact-form>div>textarea{
+    height: 240px;
+}
+
+.contact-form>div>input::placeholder,
+.contact-form>div>textarea::placeholder{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #cecece;
+}
+
+
+/* 
+flex-direction: rows;
+ㄴ justify-content: space-between;  가로정렬
+
+flex-direction: column;
+ㄴ justify-content: space-between;  세로정렬 
+*/

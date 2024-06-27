@@ -1,0 +1,370 @@
+@charset "utf-8";
+
+
+/* common.css */
+/* 
+헤더/푸터
+텍스트, 색상, 효과, 버튼, 아이콘, 
+콘텐츠(카드형태, 표, 로딩, 팝업...) 
+*/
+:root{
+    --color-point:#ffc800;
+    --pc-wid:1280px;
+}
+
+
+/* 헤더 */
+header{
+    position: fixed;
+    width: 100%;
+    padding: 80px;
+    z-index: 2;
+}
+header>div{
+    max-width: var(--pc-wid);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+header>div>h1{}
+header>div>h1>a{}
+
+header>div>nav{}
+header>div>nav>ul{
+    display: flex;
+}
+header>div>nav>ul>li{
+    position: relative;
+}
+header>div>nav>ul>li>a{
+    padding: 0 15px;
+}
+
+
+header>div>nav>ul>li>div{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: var(--color-point);
+    border-radius: 10px;
+    padding: 10px;
+    opacity: 0;
+}
+
+header>div>nav>ul>li>div>a{
+    display: block;
+}
+
+header>div>nav>ul>li:hover>div{
+    display: block;
+}
+
+/* active */
+header>div>nav>ul>li:hover>a{
+    color: var(--color-point);
+}
+
+header>div>nav>ul>li>div{
+    opacity: 0;
+    transition: 0.5s;
+}
+
+header>div>nav>ul>li:hover>div{
+    opacity: 1;
+}
+
+header>div>.trigger{
+    display: none;
+}
+
+
+/* 버튼 */
+.btn{
+    font-size:1.5rem;
+    background-color: var(--color-point);
+    padding:22px 50px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    margin-top:10px;
+    pointer-events: fill;
+    display: inline-block;
+}
+.btn:hover{
+    background-color: red;
+}
+
+
+/* 타이틀 */
+.title{
+    margin-bottom:50px;
+    text-align: center;
+}
+.title > h2{
+    text-transform: uppercase;
+}
+.title > p{
+    margin-top:10px;
+}
+
+
+/* 텍스트 생략 */
+.t-s1{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.t-s2{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+}
+
+/* 배경색 */
+.bg-gray{
+    background-color: #f2f2f2;
+}
+
+.bg-dark{
+    background-color: #333;
+    color: #fff;
+}
+
+.bg-dark h2{color: inherit !important;}
+
+/* 정렬 */
+.align-l{text-align: left;}
+.align-c{text-align: center;}
+.align-r{text-align: right;}
+
+/* 여백 */
+.m-t10{margin-top: 10px;}
+.m-t20{margin-top: 20px;}
+.m-t50{margin-top: 50px;}
+
+/* contact */
+.contact{}
+
+
+/* 푸터 */
+footer{
+    margin: 30px 0;
+    border: none;
+}
+footer>div{
+    max-width: var(--pc-wid);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer>div>address{
+    font-size: 1rem;
+}
+footer>div>.sns{
+    display: flex;
+}          
+footer>div>.sns>a{
+    padding-right: 5px;
+}
+
+footer>div>ul{
+    display: flex;
+}
+footer>div>ul>li{
+    padding-right: 20px;
+}
+
+footer>div>ul>li>a{
+    text-decoration: underline;
+}
+
+/* 
+================================================================
+================================================================
+=================mobile(~ 767px) 작성자 윤경빈===================
+================================================================
+================================================================ 
+*/
+
+@media(max-width:757px){
+    header{
+        position: fixed;
+        width: 100%;
+        padding: 20px 10px;
+        z-index: 2;
+    }
+    header>div{
+        max-width: var(--pc-wid);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+    }
+    header>div>h1{}
+    header>div>h1>a{
+        font-size: 1.5rem;
+    }
+    
+    header>div>nav{
+        display: none;
+    }
+    header>div>nav>ul{
+        display: flex;
+    }
+    header>div>nav>ul>li{
+        position: relative;
+    }
+    header>div>nav>ul>li>a{
+        padding: 0 15px;
+    }
+    
+    header>div>nav>ul>li>div{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background-color: var(--color-point);
+        border-radius: 10px;
+        padding: 10px;
+        opacity: 0;
+    }
+    
+    header>div>nav>ul>li>div>a{
+        display: block;
+    }
+    
+    header>div>nav>ul>li:hover>div{
+        display: block;
+    }
+    
+    /* active */
+    header>div>nav>ul>li:hover>a{
+        color: var(--color-point);
+    }
+    
+    header>div>nav>ul>li>div{
+        opacity: 0;
+        transition: 0.5s;
+    }
+    
+    header>div>nav>ul>li:hover>div{
+        opacity: 1;
+    }
+
+    header>div>.trigger{
+        display: block;
+        width: 30px;
+    }
+    header>div>.trigger>span{
+        display: block;
+        border-bottom: 2px solid #fff;
+        margin: 4px;
+        cursor: pointer;
+    }
+
+
+
+    
+    
+    /* 버튼 */
+    .btn{
+        font-size:1rem;
+        padding:16px 50px;
+    }
+    .btn:hover{
+        background-color: red;
+    }
+    
+    
+    /* 타이틀 */
+    .title{
+        margin-bottom:50px;
+        text-align: center;
+    }
+    .title > h2{
+        text-transform: uppercase;
+    }
+    .title > p{
+        margin-top:10px;
+    }
+    
+    
+    /* 텍스트 생략 */
+    .t-s1{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .t-s2{
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        /* text-overflow: ellipsis; */
+    }
+    
+    /* 배경색 */
+    .bg-gray{
+        background-color: #f2f2f2;
+    }
+    
+    .bg-dark{
+        background-color: #333;
+        color: #fff;
+    }
+    
+    .bg-dark h2{color: inherit !important;}
+    
+    /* 정렬 */
+    .align-l{text-align: left;}
+    .align-c{text-align: center;}
+    .align-r{text-align: right;}
+    
+    /* 여백 */
+    .m-t10{margin-top: 10px;}
+    .m-t20{margin-top: 20px;}
+    .m-t50{margin-top: 50px;}
+    
+    /* contact */
+    .contact{}
+    
+    
+    /* 푸터 */
+    footer{
+        padding: 24px 0;
+    }
+    footer>div{
+        flex-direction: column;
+    }
+    footer>div>address{order: 2; margin: 8px 0;}
+    footer>div>address p:nth-of-type(1){order: 3;}
+    footer>div>address p:nth-of-type(2){order: 1;}
+   
+
+
+}
+
+
+
+
+/* 
+================================================================
+================================================================
+=================tablet(767px ~) 작성자 윤경빈===================
+================================================================
+================================================================ 
+*/
+
+@media(min-width:768px) and (max-width:1024px){
+
+}
